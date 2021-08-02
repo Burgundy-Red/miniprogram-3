@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/diagnosis/diagnosis"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#409eff",
+    "selectedColor": "#409eff",
+    "backgroundColor": "#eeeeee",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/diagnosis/diagnosis",
+        "text": "诊断",
+        "iconPath": "images/diagnosis.png",
+        "selectedIconPath": "images/diagnosis.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "样本",
+        "iconPath": "images/sampleList.png",
+        "selectedIconPath": "images/sampleList.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "登录",
+        "iconPath": "images/login.png",
+        "selectedIconPath": "images/login.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,39 @@
+<view wx:if="{{ token.length == 0 }}">
+  <view class="container"> 
+    <view class="login-icon"> 
+      <image class="login-img" src="../../images/label.png"></image> 
+    </view> 
+    
+    <view class="login-text">
+      <text class="login-text-inner">在线诊断系统</text>
+    </view>
+    
+    <view class="login-from"> 
+      <!--账号--> 
+      <view class="inputView"> 
+        <image class="nameImage" src="../../images/user.png"></image> 
+        <!-- <label class="loginLab">账号</label>  -->
+        <!-- bininput="..." -->
+        <input class="inputText" placeholder="请输入用户名" value="{{ name }}" bindinput="login_input_user"/> 
+      </view> 
+      <view class="line"></view> 
+      <!--密码--> 
+      <view class="inputView"> 
+        <image class="keyImage" src="../../images/password.png"></image> 
+        <!-- <label class="loginLab">密码</label>  -->
+        <!-- bindinput="..." -->
+        <input class="inputText" password="true" placeholder="请输入密码" value="{{ password }}" bindinput="login_input_password"/> 
+      </view> 
+  
+      <!--按钮--> 
+      <view class="loginBtnView"> 
+        <button class="loginBtn"  size="{{primarySize}}" 
+  loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" 
+  bindtap="login">登录</button> 
+      </view> 
+    </view> 
+  </view> 
+</view>
+<view wx:else>
+  login success
+</view>

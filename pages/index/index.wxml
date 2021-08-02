@@ -1,0 +1,102 @@
+<view class="wrap-box">
+  <view class="list-title">
+    <form class="login-content">
+
+      <view class="form-box form-first">
+      </view>
+
+      <view class="form-box">
+        <view class="input_select">
+          <view class="is_inner" style="flex-item"> 
+            <input id="sampleID" type="text" class="v-model"  data-required placeholder="样本编号" bindinput="save"/>
+          </view>
+
+          <view class="is_inner" style="flex-item">
+            <input id="patientName" type="text" class="v-model"  data-required placeholder="患者姓名" bindinput="save"/>
+          </view>
+        </view>
+      </view>
+
+      <view class="form-box input-height-group">
+        <text class="form-label">送检日期</text>
+        <view class="group-item">
+          <picker id="submitTime.start" mode="date" start="2015-01-01" end="2025-12-31" bindchange="pickTime">
+            <input type="text" class="v-model" disabled="true"  value="{{ submitTime.start }}" placeholder="开始日期"/>
+          </picker>
+        </view>
+        <text class="group-tips"></text>
+        <view class="group-item">
+          <picker id="submitTime.end" mode="date" start="2015-01-01" end="2025-12-31" bindchange="pickTime">
+            <input type="text" class="v-model" disabled="true" value="{{ submitTime.end }}" placeholder="结束日期"/>
+          </picker>
+        </view>
+      </view>
+
+      <view class="form-box input-height-group">
+        <text class="form-label">采样日期</text>
+        <view class="group-item">
+          <picker id="sampleTime.start" mode="date" start="2015-01-01" end="2025-12-31" bindchange="pickTime">
+            <input type="text" class="v-model" disabled="true" value="{{ sampleTime.start }}" placeholder="开始日期"/>
+          </picker>
+        </view>
+        <text class="group-tips"> </text>
+        <view class="group-item">
+          <picker id="sampleTime.end" mode="date" start="2015-01-01" end="2025-12-31" bindchange="pickTime">
+            <input type="text" class="v-model" disabled="true" value="{{ sampleTime.end }}" placeholder="结束日期"/>
+          </picker>
+        </view>
+      </view>
+
+      <view class="form-box">
+        <view class="input_select">
+          <view class="is_inner" style="flex-item"><picker id="sampleStatus" mode="selector" range="{{ allSampleStatus }}"  value="{{index}}" bindchange="save_select">
+            <input type="text" class="v-model" disabled="true" placeholder="样本状态" value="{{ sampleStatus }}" />
+          </picker></view>
+
+          <view class="is_inner" style="flex-item"><picker id="sampleType" mode="selector" range="{{ allSampleTypes }}" value="{{index}}" bindchange="save_select">
+          <input type="text" class="v-model" disabled="true" placeholder="样本类型" value="{{ sampleType }}" />
+          </picker></view>  
+        </view>
+      </view>
+
+      <view class="form-box">
+        <view class="input_select">
+          <view class="is_inner" style="flex-item"><picker id="reportType" mode="selector" range="{{ allReportTypes }}" value="{{index}}  "bindchange="save_select">
+            <input type="text" class="v-model" disabled="true" placeholder="报告类型" value="{{ reportType }}" />
+            </picker></view>
+
+          <view class="is_inner" style="flex-item"><picker id="submitInstitution" range="{{ allSubmitInstitution }}" value="{{index}}" bindchange="save_select">
+            <input type="text" class="v-model" disabled="true" placeholder="送检机构" value="{{ submitInstitution }}" />
+          </picker></view> 
+        </view>
+      </view>
+
+      <view class="form-box">
+        <view class="input_select">
+          <button class="is_inner" style="flex-item" type="warn">重置</button>
+          <button class="is_inner" style="flex-item" type="primary">查找</button>
+        </view>
+      </view>
+    
+    </form>
+  </view>
+</view>
+
+<view class="table-margin">
+</view>
+
+<table-view  
+      header-row-class-name="header-class"
+      row-class-name="row-class"
+      cell-class-name="cell-class"
+      headers="{{tableHeader}}" 
+      data="{{ row }}" 
+      stripe="{{ stripe }}"
+      height="{{ height }}"
+      border="{{ border }}"
+      bind:rowClick="onRowClick"
+      bind:cellClick="onCellClick" 
+      no-data-msg="{{ msg }}"
+/>
+
+

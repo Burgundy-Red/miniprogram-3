@@ -1,0 +1,113 @@
+
+/* pages/common/form.wxss */
+.wrap-box{
+  padding: 0rpx 38rpx 0;
+  color: #252527;
+  margin-top: -100rpx;
+}
+.lc-line{
+  overflow: hidden;
+}
+.list-title .lc-say{
+  font-size:40rpx;
+  float: left;
+}
+.lc-tips{
+  color: #969696;
+}
+.lc-switch{
+  font-size:24rpx;
+  color:#252527;
+  text-decoration:underline;
+  float:left;
+}
+.list-title .btn-text,.lc-tips{
+  font-size:24rpx;
+  float:right;
+}
+.btn-text{
+  text-decoration: underline;
+}
+.wrap-box .list-title{
+  margin-bottom:0rpx;
+}
+
+.form-box{
+    position: relative;
+    margin-top:30rpx;
+    white-space: nowrap;
+    font-size:0;
+    min-height:85rpx;
+    vertical-align: top;
+    border:1rpx solid rgba(255,255,255,.0);
+}
+.input_select {
+  flex-direction: row;
+  display: flex;
+}
+.is_inner {
+  width: 48%;
+  padding: 10rpx 0;
+  margin: 0 10rpx;
+  font-size:28rpx;
+  border-bottom:1rpx solid #dbdada;
+  height:84rpx;
+  box-sizing:border-box;
+  text-align: center;
+}
+
+.form-label{
+  font-size: 28rpx;
+  color:#808080;
+}
+.form-label .label-small{
+  font-size:20rpx;
+  margin-left:6rpx;
+}
+.form-box.input-group{
+  border-bottom: 1rpx solid #dbdada;
+  padding-top: 8rpx;
+  box-sizing: border-box;
+}
+.form-box.input-group text{
+  font-size:28rpx;
+  vertical-align: bottom;
+}
+.form-box.input-group input{
+  border-bottom: 0;
+  width: 150rpx;
+  height: 50rpx;
+  text-align: center;
+}
+.form-box.input-group .group-item{
+  display: inline-block;
+  vertical-align: bottom;
+  background-color: #eee;
+}
+
+.form-box.input-height-group input{
+  font-size: 25rpx;
+  border-bottom: 0;
+  width: 220rpx;
+  height: 50rpx;
+  text-align: center;
+}
+.form-box.input-height-group .group-item{
+  display: inline-block;
+  vertical-align: bottom;
+  background-color: #eee;
+}
+
+.input-height-group .group-tips{
+  margin: 0 20rpx;
+}
+.form-box .form-label{
+  margin-right:30rpx;
+}
+.input-group .group-tips{
+  margin: 0 10rpx;
+}
+
+.table-margin {
+  margin-top: 50rpx;
+}

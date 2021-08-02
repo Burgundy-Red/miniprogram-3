@@ -1,0 +1,4 @@
+{
+  "usingComponents": {"table-view": "../../../miniprogram_npm/miniprogram-table-component"},
+  "navigationBarTitleText": "样本筛选"
+}
