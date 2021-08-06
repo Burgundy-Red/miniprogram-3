@@ -1,2 +1,130 @@
-<!--pages/diagnosis.wxml-->
-<text>pages/diagnosis.wxml</text>
+<!--pages/report/report.wxml-->
+
+<van-tabs active="{{ active }}">
+  <van-tab title="诊断">
+  </van-tab>
+  <van-tab title="报告">
+    <van-cell-group title="样本信息" inset>
+      <van-cell title="样本标号" value="内容" />
+      <van-cell title="患者姓名" value="内容" />
+      <van-cell title="样本类型" value="内容" />
+      <van-cell title="患者年龄" value="内容" />
+      <van-cell title="是否绝经" value="内容" />
+      <van-cell title="末次月经时间" value="内容" />
+      <van-cell title="历史病例" value="内容" />
+    </van-cell-group>
+    <van-collapse custom-class="collapse-class" value="{{ showCollapseNames }}" bind:change="collapseOnChange">
+      <van-collapse-item title="基本情况" name="basicSituation">
+        <view class="wrap-tabs">
+        <view class="tabs-container">
+          <view class="tabs-label" style="flex-item">样本满意度</view>
+          <view class="tabs-content" style="flex-item">
+            <van-radio-group id="satisfaction" value="{{ satisfaction }}" direction="horizontal" bind:change="radioOnChange">
+              <van-radio name="不满意"  icon-size="10px" label-class="cell-label">不满意</van-radio>
+              <van-radio name="满意"  icon-size="10px" label-class="cell-label">满意</van-radio>
+            </van-radio-group>
+          </view> 
+        </view> 
+
+        <view class="tabs-container">
+          <view class="tabs-label" style="flex-item">上皮细胞数</view>
+          <view class="tabs-content except-1" style="flex-item">
+            <van-radio-group id="noEpithelialCells" value="{{ noEpithelialCells }}" direction="horizontal" bind:change="radioOnChange">
+              <van-radio name="<5000"  icon-size="10px" label-class="cell-label"><text decode="{{true}}">&lt;5000</text></van-radio>
+              <van-radio name=">=5000"  icon-size="10px" label-class="cell-label"><text decode="{{true}}">&gt;=5000</text></van-radio>
+            </van-radio-group>
+          </view> 
+        </view> 
+
+        <view class="tabs-container">
+          <view class="tabs-label" style="flex-item">宫颈管细胞</view>
+          <view class="tabs-content" style="flex-item">
+            <van-radio-group id="noCervicalCells" value="{{ noCervicalCells }}" direction="horizontal" bind:change="radioOnChange">
+              <van-radio name="无"  icon-size="10px" label-class="cell-label">无</van-radio>
+              <text decode="{{true}}">&emsp;&emsp;</text>
+              <van-radio name="有"  icon-size="10px" label-class="have-label">有</van-radio>
+            </van-radio-group>
+          </view> 
+        </view> 
+
+        <view class="tabs-container">
+          <view class="tabs-label" style="flex-item"><text decode="{{true}}">化生细胞&emsp;</text></view>
+          <view class="tabs-content" style="flex-item">
+            <van-radio-group id="metaplasticCells" value="{{ metaplasticCells }}" direction="horizontal" bind:change="radioOnChange">
+              <van-radio name="无"  icon-size="10px" label-class="cell-label">无</van-radio>
+              <text decode="{{true}}">&emsp;&emsp;</text>
+              <van-radio name="有"  icon-size="10px" label-class="have-label">有</van-radio>
+            </van-radio-group>
+          </view> 
+        </view> 
+
+        <view class="tabs-container">
+          <view class="tabs-label" style="flex-item"><text decode="{{true}}">炎性细胞覆盖</text></view>
+          <view class="tabs-content except-2" style="flex-item">
+            <van-radio-group id="inflammatoryCells" value="{{ inflammatoryCells }}" direction="horizontal" bind:change="radioOnChange">
+              <van-radio name="<50%"  icon-size="10px" label-class="except-2"><text decode="{{true}}">&lt;50%</text></van-radio>
+              <van-radio name="50%-70%"  icon-size="10px" label-class="except-2">50%-70%</van-radio>
+              <van-radio name=">70%"  icon-size="10px" label-class="except-2"><text decode="{{true}}">&gt;70%</text></van-radio>
+            </van-radio-group>
+          </view> 
+        </view> 
+      </view>
+      </van-collapse-item>
+
+      <van-collapse-item title="生物病原体" name="biologicalPathogens">
+        <view class="wrap-tabs">
+          <view class="tabs-container">
+            <view class="tabs-content vertical-except" style="flex-item">
+              <van-checkbox-group id="biologicalPathogens" value="{{ biologicalPathogens }}" max="{{ 6 }}" bind:change="checkboxOnChange">
+                <van-checkbox name="1"  icon-size="15px" label-class="vertical-except-contnet"> 细菌，形态学上符合放线菌属 </van-checkbox>
+                <van-checkbox name="2"  icon-size="15px" label-class="vertical-except-contnet"> 菌群变化，提示细菌性阴道病 </van-checkbox>
+                <van-checkbox name="3"  icon-size="15px" label-class="vertical-except-contnet">  滴虫感染  </van-checkbox>
+                <van-checkbox name="4"  icon-size="15px" label-class="vertical-except-contnet">  真菌，形态符合念珠菌属  </van-checkbox>
+                <van-checkbox name="5"  icon-size="15px" label-class="vertical-except-contnet">  细胞变化符合单纯疱疹病毒感染  </van-checkbox>
+                <van-checkbox name="6"  icon-size="15px" label-class="vertical-except-contnet">  细胞变化符合巨细胞病毒感染  </van-checkbox>
+              </van-checkbox-group>
+            </view> 
+          </view> 
+        </view>
+      </van-collapse-item>
+
+      <van-collapse-item title="细胞病理判断结果" name="cellPathology">
+        <view class="wrap-tabs">
+            <view class="form-box">
+              <picker id="squamousEpithelium" mode="selector" range="{{ allSquamousEpitheliumStatus }}"  value="{{index}}" bindchange="save_select">
+                  <input type="text" class="v-model" disabled="true" placeholder="鳞状上皮分析" value="{{ squamousEpithelium }}" />
+              </picker>
+            </view>
+            
+            <view class="form-box">
+              <picker id="glandularEpithelium" mode="selector" range="{{ allGlandularEpitheliumStatus }}"  value="{{index}}" bindchange="save_select">
+                  <input type="text" class="v-model" disabled="true" placeholder="腺上皮分析" value="{{ glandularEpithelium }}" />
+              </picker>
+            </view>
+
+            <view class="field-class">
+              <van-field id="diagnosisDescription" value="{{diagnosisDescription}}" label="诊断描述" type="textarea"  autosize border="{{ true }}" placeholder="请输入" bindinput="save_suggestion"/>
+            </view>
+        </view>
+      </van-collapse-item>
+
+      <van-collapse-item title="医生建议" name="doctorRecommend">
+        <view class="wrap-tabs">
+          <view class="tabs-container">
+            <view class="tabs-label" style="flex-item">检查</view>
+            <view class="tabs-content" style="flex-item">
+              <van-radio-group id="checkout" value="{{ checkout }}"  direction="horizontal" bind:change="radioOnChange">
+                <van-radio name="定期检查"  icon-size="10px" label-class="cell-label">定期检查</van-radio>
+                <van-radio name="建议HPV-DNA检测"  icon-size="10px" label-class="cell-label">建议HPV-DNA检测</van-radio>
+              </van-radio-group>
+            </view> 
+          </view> 
+
+          <view class="field-class">
+            <van-field id="suggestion" value="{{ suggestion }}" label="建议：" type="textarea" autosize border="{{ true }}" placeholder="请输入" bind:change="save_suggestion"/>
+          </view>
+        </view>
+      </van-collapse-item> 
+    </van-collapse> 
+  </van-tab>
+</van-tabs>

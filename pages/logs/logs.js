@@ -1,12 +1,14 @@
 // logs.js
+import Toast from '@vant/weapp/toast/toast';
+
 const util = require('../../utils/util.js')
 const app = getApp()
 
 Page({
   data: {
     logs: [],
-    name: "杨金英",
-    password: "123456",
+    name: "管理员",
+    password: "1111",
     token: ""
   },
 
@@ -54,6 +56,8 @@ Page({
         that.setData({
           token: app.globalData.token
         })
+        console.log(app.globalData.token);
+        Toast.success("登陆成功")
       },
       fail(res) {
         console.log("fail")

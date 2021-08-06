@@ -1,66 +1,66 @@
-// pages/diagnosis.js
+// pages/report/report.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    allSquamousEpitheliumStatus: ['未见上皮内病变或恶性病变', '非典型鳞状细胞，不能明确意义', '非典型鳞状细胞，不除外高级别鳞状上皮内病变', '低级别鳞状上皮内病变', '高级别鳞状上皮内病变', '鳞状细胞癌'],
+    allGlandularEpitheliumStatus: ['非典型，子宫颈管细胞', '非典型，子宫内膜细胞', '非典型，腺细胞', '非典型，子宫颈管腺细胞，倾向肿瘤', '非典型，腺细胞，倾向肿瘤', '子宫颈管原位腺癌', '腺癌，子宫颈管腺癌', '腺癌，子宫内膜腺癌', '腺癌，子宫外腺癌', '腺癌，没有特别指明类型的腺癌', '其他类别恶行肿瘤'],
 
+    showCollapseNames: [],
+    satisfaction: "",             // 样本满意度
+    noEpithelialCells: "",        // 上皮细胞数
+    noCervicalCells: "",           // 宫颈管细胞数
+    metaplasticCells: "",         // 化生细胞
+    inflammatoryCells: "",        // 炎性细胞覆盖
+
+    biologicalPathogens: [],      // 生物病原体
+
+    squamousEpithelium: "",       // 鳞状上皮分析
+    glandularEpithelium: "",      // 腺上皮分析
+    diagnosisDescription: "",      // 诊断描述
+
+    checkout: "",                 // 医生建议 检查
+    suggestion: ""                // 医生建议 建议
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  collapseOnChange(event) {
+    this.setData({
+      showCollapseNames: event.detail,
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  radioOnChange: function(e) {
+    this.setData({
+      [e.target.id]: e.detail
+    })
+  },
+  checkboxOnChange: function(e) {
+    this.setData({
+      [e.target.id]: e.detail
+    })
+  },
+  save: function(e) {
+    var key = e.target.id;
+    this.setData({
+      [key]: e.detail.value
+    });
+  },
+  save_select: function(e) {
+    var index = e.detail.value;
+    var key = e.target.id;
+    if (key == "squamousEpithelium") {
+      this.setData({ [key]: this.data.allSquamousEpitheliumStatus[index]})
+    } else if (key == "glandularEpithelium") {
+      this.setData({ [key]: this.data.allGlandularEpitheliumStatus[index]})
+    }
+  },
+  save_suggestion: function(e) {
+    var key = e.target.id;
+    this.setData({
+      [key]: e.detail
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

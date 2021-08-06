@@ -1,5 +1,5 @@
-<view wx:if="{{ token.length == 0 }}">
-  <view class="container"> 
+<!-- <view wx:if="{{ token.length == 0 }}"> -->
+  <!-- <view class="container"> 
     <view class="login-icon"> 
       <image class="login-img" src="../../images/label.png"></image> 
     </view> 
@@ -9,31 +9,39 @@
     </view>
     
     <view class="login-from"> 
-      <!--账号--> 
       <view class="inputView"> 
         <image class="nameImage" src="../../images/user.png"></image> 
-        <!-- <label class="loginLab">账号</label>  -->
-        <!-- bininput="..." -->
         <input class="inputText" placeholder="请输入用户名" value="{{ name }}" bindinput="login_input_user"/> 
       </view> 
       <view class="line"></view> 
-      <!--密码--> 
       <view class="inputView"> 
         <image class="keyImage" src="../../images/password.png"></image> 
-        <!-- <label class="loginLab">密码</label>  -->
-        <!-- bindinput="..." -->
         <input class="inputText" password="true" placeholder="请输入密码" value="{{ password }}" bindinput="login_input_password"/> 
       </view> 
   
-      <!--按钮--> 
       <view class="loginBtnView"> 
         <button class="loginBtn"  size="{{primarySize}}" 
   loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" 
   bindtap="login">登录</button> 
+        <van-toast id="van-toast" />
       </view> 
     </view> 
-  </view> 
-</view>
-<view wx:else>
-  login success
-</view>
+  </view>  -->
+
+		<view class="wrap">
+			<view class="login-wrap">
+				<view class="login-title">
+					在线诊断系统
+				</view>
+				<view class="login-form">
+					<input type="text" placeholder="用户名" placeholder-style="color: #fff" class="login-input" value="{{ name }}" bindinput="login_input_user"/>
+					<input type="password" placeholder="密码" placeholder-style="color: #fff" class="login-input" value="{{password}}" bindinput="login_input_password"/>
+					<button value="登录" class="login-submit" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" 
+  bindtap="login">登录</button>
+          <van-toast id="van-toast" />
+				</view>
+				<!-- <view class="tip">
+					Don't have account? <a href="#">Sign up</a>
+				</view> -->
+			</view>
+		</view>

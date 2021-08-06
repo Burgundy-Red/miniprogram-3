@@ -2,7 +2,7 @@ page{
   height: 100%; 
 } 
 
-.container { 
+/* .container { 
   height: 100%; 
   display: flex; 
   flex-direction: column;   padding-top: 200rpx; 
@@ -10,7 +10,6 @@ page{
   background-color: #f2f2f2 
 }  
  
-/*登录图片*/ 
 .login-icon{ 
   flex: none; 
 } 
@@ -27,7 +26,6 @@ page{
   color: #409eff;
 }
  
-/*表单内容*/ 
 .login-from { 
   margin-top: 20px; 
   flex: auto; 
@@ -38,7 +36,6 @@ page{
   background-color: #fff; 
   line-height: 44px; 
 } 
-/*输入框*/ 
 .nameImage, .keyImage { 
   margin-left: 22px; 
   width: 14px; 
@@ -56,7 +53,7 @@ page{
   text-align: right; 
   margin-right: 22px; 
   margin-top: 11px; 
-  color: #545454; 
+  color: #fff; 
   font-size: 14px } 
  
 .line { 
@@ -65,7 +62,6 @@ page{
   background-color: #cccccc; 
   margin-top: 1px; 
 } 
-/*按钮*/ 
 .loginBtnView { 
   width: 100%; 
   height: auto; 
@@ -80,4 +76,72 @@ page{
   margin-top: 35px; 
   background-color: #409eff;
   color: #fff;
-} 
+}  */
+
+
+.wrap {
+  height: 100%;
+  /* background-image: linear-gradient(to right, #30cfd0, #409eff); */
+  background-color: white;
+}
+/* 这个是登录区域 */
+.login-wrap {
+  width: 200px;
+  height: 400px;
+  background-color: #409eff;
+  /* 居中开始 */
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* 居中结束 */
+  border-radius: 10px;
+  padding: 0 50px; /* 左右留出空余 */
+}
+/* 给最上面的Login这个标题设置样式 */
+.login-title {
+  font-size: 25px;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  font-weight: bold;
+}
+/* 输入设置样式 */
+.login-form .login-input{
+  display: block; /* input 标签是行内元素 */
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0 10px 10px;
+  margin-bottom: 20px;
+  outline: none; /* 输入框边框去掉 */
+  background-color: transparent; /* 透明色 */
+  color: #fff;
+}
+.login-form .login-input::placeholder {
+  color: #fff;
+  text-transform: uppercase; /* 设置placeholder内容的大小写 */
+}
+/* 给登录提交按钮设置样式 */
+.login-form .login-submit {
+  width: 100%;
+  line-height: 30px;
+  border: 0;
+  border-radius: 3px;
+  margin-top: 20px;
+  background-image: linear-gradient(to right, #5ee7df, #409eff);
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+/* tip 区域样式 */
+.tip {
+  margin-top: 15px;
+}
+.tip a {
+  padding-left: 110px;
+  text-decoration: none;
+  color: white;
+}

@@ -5,40 +5,6 @@ var util = require('../../utils/util.js')
 
 Page({
   data: {
-
-    tableHeader: [
-      {
-        prop: 'sampleStatus',
-        width: 150,
-        label: '样本状态',
-        color: '#409eff'
-      },
-      {
-        prop: 'sampleNum',
-        width: 250,
-        label: '样本编号'
-      },
-      {
-        prop: 'patientName',
-        width: 152,
-        label: '姓名'
-      },
-      {
-        prop: 'institution',
-        width: 200,
-        label: '检测机构'
-      },
-      {
-        prop: 'operate',
-        width: 110,
-        label: '操作',
-        color: '#FF0000'
-      }
-    ],
-    stripe: true,
-    border: true,
-    outBorder: true,
- 
     allSampleStatus: ["待上传", "分析中", "待诊断", "已诊断"],
     allSampleTypes: ["宫颈脱落细胞", "痰液", "尿液", "胸水", "腹水", "活检组织"],
     allReportTypes: ["TCT报告", "DNA报告", "TCT报告和DNA报告"],
@@ -82,49 +48,17 @@ Page({
     }
   },
 
-  onShow() {
-    var that = this;
-    if (app.globalData.token != "") {
-      wx.request({
-        url: "http://cytopathology.jztai.com:9998/samples/noReviewed/1/10",
-        method: "GET",
-        data: {
-          page: 1,
-          size: 100
-          // patientName: this.data.patientName,
-          // sampleType: this.data.sampleType,
-          // reportType: this.data.reportType,
-          // sampleStartSendDate: this.data.submitTime.start,
-          // sampleEndSendDate: this.data.submitTime.end,
-          // sampleStartDate: this.data.sampleTime.start,
-          // sampleEndDate: this.data.sampleTime.end,
-          // sampleStatus: this.data.sampleStatus,
-          // institutionId: this.data.submitInstitution
-        },
-        header: {
-          'content-type': 'application/json',
-          'Authorization': app.globalData.token
-        },
-        
-        success(res) {
-          var records = res.data.data.records;
-          that.setData({
-            row: util.getRecord(records)
-          });
-        },
-        fail(res) {
-          console.log("fail")
-        }
-      })
-    }; 
-  },
-
-  onRowClick: function(e) {
-    console.log(e)
-    var column = e.detail.currentTarget.dataset.row;
-    if (column == 4) {
-      wx.switch
-    }
+  reset: function(e) {
+    this.setData({
+      sampleID: "",
+      patientName: "",
+      submitTime: {start: "", end: ""},
+      sampleTime: {start: "", end: ""},
+      sampleStatus: "",
+      sampleType: "",
+      reportType: "",
+      submitInstitution: ""
+    })
   },
 
   getUserProfile(e) {

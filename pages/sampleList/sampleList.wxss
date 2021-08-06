@@ -1,0 +1,4 @@
+/* pages/diagnosis.wxss */
+.table-margin {
+  margin-top: 50rpx;
+}

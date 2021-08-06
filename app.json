@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/sampleList/sampleList",
     "pages/index/index",
     "pages/logs/logs",
     "pages/diagnosis/diagnosis"
@@ -17,16 +18,16 @@
     "position": "bottom",
     "list": [
       {
-        "pagePath": "pages/diagnosis/diagnosis",
-        "text": "诊断",
+        "pagePath": "pages/sampleList/sampleList",
+        "text": "样本列表",
         "iconPath": "images/diagnosis.png",
         "selectedIconPath": "images/diagnosis.png"
       },
       {
         "pagePath": "pages/index/index",
-        "text": "样本",
-        "iconPath": "images/sampleList.png",
-        "selectedIconPath": "images/sampleList.png"
+        "text": "样本筛选",
+        "iconPath": "images/find.png",
+        "selectedIconPath": "images/find.png"
       },
       {
         "pagePath": "pages/logs/logs",
